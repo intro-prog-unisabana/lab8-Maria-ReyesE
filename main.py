@@ -26,26 +26,26 @@ Examples:
 
         file_path = sys.argv[1]
 
-        # Si no hay comando → termina silenciosamente
+
         if len(sys.argv) == 2:
             return
 
-        # Leer tareas UNA sola vez
+
         tasks = read_todo_file(file_path)
 
-        i = 2  # empezamos desde el comando
+        i = 2  
 
         while i < len(sys.argv):
             command = sys.argv[i]
 
-            # -------- VIEW --------
+
             if command == "view":
                 print("Tasks:")
                 for task in tasks:
                     print(task)
                 i += 1
 
-            # -------- ADD --------
+
             elif command == "add":
                 try:
                     task = sys.argv[i + 1]
@@ -56,7 +56,7 @@ Examples:
                 print(f'Task "{task}" added.')
                 i += 2
 
-            # -------- REMOVE --------
+
             elif command == "remove":
                 try:
                     task = sys.argv[i + 1]
@@ -71,11 +71,11 @@ Examples:
 
                 i += 2
 
-            # -------- INVALID COMMAND --------
+
             else:
                 raise ValueError("Command not found!")
 
-        # Escribir UNA sola vez al final
+
         write_todo_file(file_path, tasks)
 
     except IndexError as e:
